@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {
+  --viewport-200: 400vh;
+}
