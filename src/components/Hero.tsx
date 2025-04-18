@@ -12,6 +12,7 @@ const Hero = () => {
   const heroTextTitle = useRef<HTMLHeadingElement>(null);
   const heroTextName = useRef<HTMLHeadingElement>(null);
   const heroTextSlogan = useRef<HTMLHeadingElement>(null);
+  const heroCallToAction = useRef<HTMLParagraphElement>(null);
   gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin);
 
   useGSAP(
@@ -108,12 +109,22 @@ const Hero = () => {
         },
         "<+0.2"
       );
+      scrollTrigger.from(
+        heroCallToAction.current,
+        {
+          yPercent: 100,
+          ease: "power1.out",
+        },
+        "<+0.2"
+      );
+      ScrollTrigger.refresh();
     },
+
     { scope: hero }
   );
 
   return (
-    <section ref={hero} className="w-full flex flex-col items-center h-[250vh]">
+    <section ref={hero} className="w-full flex flex-col items-center h-[300vh]">
       <div
         ref={heroImgContainer}
         className="sticky top-0 w-full bg-green-200 h-dvh will-change-transform origin-center"
@@ -139,12 +150,20 @@ const Hero = () => {
             ref={heroTextSlogan}
             className="text-5xl leading-[1.2] text-white font-light"
           >
-            He'll help you with identity, logo design, websites, applications,
+            I'll help you with identity, logo design, websites, applications,
             illustrations, icon design and more..
           </p>
         </div>
+        <div className="overflow-hidden absolute right-10 bottom-10 lg:hover:cursor-not-allowed">
+          <p
+            ref={heroCallToAction}
+            className="p-4 bg-black rounded-2xl text-2xl text-white"
+          >
+            Scroll to explore &darr;
+          </p>
+        </div>
         <img
-          className="object-cover w-full h-full absolute top-0 left-0"
+          className="object-cover w-full h-full absolute top-0 left-0 lg:hover:cursor-help"
           ref={heroImg}
           src="src/assets/Mesh_gradient_jo.png"
           alt=""
