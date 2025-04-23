@@ -3,19 +3,10 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
+import { skills } from "../data/skills";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const SkillsMarquee = () => {
-  const skills = [
-    ["Creative Development", "Graphic Design", "Illustration"],
-    ["Web Animation", "GSAP", "ScrollTrigger", "Lottie"],
-    ["React", "Next.js", "Angular", "TypeScript", "Tailwind", "HTML", "SCSS"],
-    ["WordPress", "Elementor", "WooCommerce"],
-    ["UX/UI Design", "Figma", "Adobe XD", "Prototyping"],
-    ["Strapi", "Headless CMS", "Prismic", "REST API Integration"],
-    ["Print Design", "Branding", "Logo Design", "Packaging"],
-  ];
-
   const containerRef = useRef<HTMLDivElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
   const skillsMarquee = useRef<HTMLDivElement>(null);
