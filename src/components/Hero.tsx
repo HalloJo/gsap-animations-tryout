@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import DrawSVGPlugin from "gsap/DrawSVGPlugin";
+import meshGradient from "../assets/Mesh_gradient_jo.png";
 
 const Hero = () => {
   const hero = useRef<HTMLDivElement>(null);
@@ -139,7 +140,7 @@ const Hero = () => {
         <div className="overflow-hidden absolute top-5 left-10 z-10 mix-blend-exclusion">
           <p
             ref={heroTextTitle}
-            className=" text-9xl/snug text-white font-semibold"
+            className="text-9xl/snug text-white font-semibold"
           >
             Creative developer
           </p>
@@ -164,7 +165,7 @@ const Hero = () => {
         <img
           className="object-cover w-full h-full absolute top-0 left-0 lg:hover:cursor-help"
           ref={heroImg}
-          src="src/assets/Mesh_gradient_jo.png"
+          src={meshGradient}
           alt=""
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-exclusion">

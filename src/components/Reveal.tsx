@@ -4,6 +4,8 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import DrawSVGPlugin from "gsap/DrawSVGPlugin";
+import revealImage from "../assets/jo_reveal_image.jpg";
+import overlayImage from "../assets/cacti.jpg";
 
 const Reveal = () => {
   const revealSection = useRef<HTMLElement>(null);
@@ -127,13 +129,13 @@ const Reveal = () => {
         <img
           ref={staticImg}
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
-          src="src/assets/jo_reveal_image.jpg"
+          src={revealImage}
           alt=""
         />
         <img
           ref={overlayImg}
           className="absolute top-full left-0 w-full h-full object-cover z-10"
-          src="src/assets/cacti.jpg"
+          src={overlayImage}
           alt=""
         />
         <div className="absolute inset-0 flex items-center flex-col justify-center z-10">
