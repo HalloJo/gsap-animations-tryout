@@ -62,7 +62,7 @@ const SkillsMarquee = () => {
             ease: "power2.out",
             scrollTrigger: {
               trigger: containerRef.current,
-              start: "top 30%",
+              start: "top 60%",
               end: "bottom bottom",
               scrub: true,
             },
@@ -102,7 +102,7 @@ const SkillsMarquee = () => {
                         className="flex items-center gap-2"
                       >
                         <span
-                          className={`inline-block transition duration-300 ${
+                          className={`inline-block transition select-none duration-300 ${
                             word === randomWord
                               ? "text-green-200 hover:text-white"
                               : "text-[#6A7D75] hover:text-green-200"
