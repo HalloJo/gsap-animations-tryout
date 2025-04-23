@@ -17,9 +17,47 @@ const SkillsMarquee = () => {
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const title = useRef<HTMLHeadingElement>(null);
+  const skillsMarquee = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
+      // TEXT ANIMATION
+      const scrollTrigger = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 50%",
+          end: "bottom bottom",
+        },
+      });
+
+      scrollTrigger.fromTo(
+        [title.current],
+        {
+          yPercent: 100,
+          opacity: 0,
+        },
+        {
+          yPercent: 0,
+          opacity: 1,
+          ease: "power2.out",
+          duration: 1,
+        }
+      );
+      scrollTrigger.fromTo(
+        skillsMarquee.current,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          ease: "power2.out",
+          duration: 1,
+        },
+        "-=0.6"
+      );
+
+      // MARQUEE ANIMATION
       const rows = gsap.utils.toArray<HTMLDivElement>(".skill-row");
 
       rows.forEach((row, index) => {
@@ -33,10 +71,9 @@ const SkillsMarquee = () => {
             ease: "power2.out",
             scrollTrigger: {
               trigger: containerRef.current,
-              start: "top 50%",
+              start: "top 30%",
               end: "bottom bottom",
               scrub: true,
-              markers: true,
             },
           }
         );
@@ -48,10 +85,16 @@ const SkillsMarquee = () => {
   return (
     <section ref={containerRef} className="bg-black h-[200vh] w-full  py-28 ">
       <div className="sticky top-50 w-full h-dvh flex flex-col items-center justify-start overflow-hidden">
-        <h2 className="text-6xl leading-[1.2] mb-8 text-white font-semibold">
+        <h2
+          ref={title}
+          className="text-6xl leading-[1.2] mb-8 text-white font-semibold"
+        >
           What I bring to the table.
         </h2>
-        <div className="flex flex-col items-center overflow-hidden">
+        <div
+          ref={skillsMarquee}
+          className="flex flex-col items-center overflow-hidden"
+        >
           {skills.map((skill, index) => {
             const randomWord = skill[Math.floor(Math.random() * skill.length)];
 
