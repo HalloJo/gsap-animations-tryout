@@ -1,4 +1,4 @@
-import mfadImage from "../assets/mfad.png";
+import mfadImage from "../assets/MFAD.png";
 import buitenkanzImage from "../assets/buitenkanz.png";
 import iproxImage from "../assets/iprox.png";
 import pokedexImage from "../assets/searchpokedex.png";
