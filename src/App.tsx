@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import Reveal from "./components/Reveal";
 import SkillsMarquee from "./components/SkillsMarquee";
+import VerticalScrollGallery from "./components/VerticalScrollGallery";
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <Hero />
       <Reveal />
       <SkillsMarquee />
+      <VerticalScrollGallery />
     </main>
   );
 };

@@ -74,7 +74,7 @@ const SkillsMarquee = () => {
   );
 
   return (
-    <section ref={containerRef} className="bg-black h-[200vh] w-full  py-28 ">
+    <section ref={containerRef} className="bg-black h-[200vh] w-full pt-28 ">
       <div className="sticky top-50 w-full h-dvh flex flex-col items-center justify-start overflow-hidden">
         <h2
           ref={title}

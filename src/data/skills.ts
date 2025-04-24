@@ -1,6 +1,6 @@
 export const skills = [
   ["Creative Development", "Graphic Design", "Illustration"],
-  ["Web Animation", "GSAP", "ScrollTrigger", "Lottie"],
+  ["Web Animation", "GSAP", "ScrollTrigger", "Styled Components"],
   ["React", "Next.js", "Angular", "TypeScript", "Tailwind", "HTML", "SCSS"],
   ["WordPress", "Elementor", "WooCommerce"],
   ["UX/UI Design", "Figma", "Adobe XD", "Prototyping"],
