@@ -3,4 +3,5 @@
 
 @theme {
   --font-heading: "Archivo", sans-serif;
+  --font-hero: clamp(2rem, 15vw, 8rem);
 }

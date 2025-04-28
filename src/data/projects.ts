@@ -16,8 +16,9 @@ export const projects = [
       "TypeScript",
       "GSAP",
       "Prismic",
-      "Taiwind CSS",
+      "Tailwind CSS",
     ],
+    link: "https://marketing4aday.com",
   },
   {
     title: "Buitenkanz",
@@ -33,6 +34,7 @@ export const projects = [
       "SSR",
       "Illustration",
     ],
+    link: "https://buitenkanz.com/",
   },
   {
     title: "Pokedex",
@@ -40,7 +42,7 @@ export const projects = [
       "Ut voluptatum dolores 33 sunt soluta est saepe nihil aut laudantium possimus sit suscipit debitis eos voluptas rerum vel voluptatem necessitatibus? Non ratione fugiat est dignissimos laborum sed possimus iure qui dolor atque.",
     image: pokedexImage,
     tags: [
-      "Website",
+      "Web app",
       "Next.js",
       "Tailwind CSS",
       "TypeScript",
@@ -49,6 +51,59 @@ export const projects = [
       "CMS",
       "GSAP",
     ],
+    link: "https://search-pokemon-dex.vercel.app/",
+  },
+];
+
+export const gridProjects = [
+  {
+    title: "Marketing for a Day",
+    intro:
+      "Ut voluptatum dolores 33 sunt soluta est saepe nihil aut laudantium possimus sit suscipit debitis eos voluptas rerum vel voluptatem necessitatibus? Non ratione fugiat est dignissimos laborum sed possimus iure qui dolor atque.",
+    image: mfadImage,
+    tags: [
+      "Website",
+      "Next.js",
+      "Brand identity",
+      "TypeScript",
+      "GSAP",
+      "Prismic",
+      "Tailwind CSS",
+    ],
+    link: "https://marketing4aday.com",
+  },
+  {
+    title: "Buitenkanz",
+    intro:
+      "Ut voluptatum dolores 33 sunt soluta est saepe nihil aut laudantium possimus sit suscipit debitis eos voluptas rerum vel voluptatem necessitatibus? Non ratione fugiat est dignissimos laborum sed possimus iure qui dolor atque.",
+    image: buitenkanzImage,
+    tags: [
+      "Website",
+      "Next.js",
+      "Brand identity",
+      "TypeScript",
+      "Framer Motion",
+      "SSR",
+      "Illustration",
+    ],
+    link: "https://buitenkanz.com/",
+  },
+  {
+    title: "Pokedex",
+    intro:
+      "Ut voluptatum dolores 33 sunt soluta est saepe nihil aut laudantium possimus sit suscipit debitis eos voluptas rerum vel voluptatem necessitatibus? Non ratione fugiat est dignissimos laborum sed possimus iure qui dolor atque.",
+    image: pokedexImage,
+    tags: [
+      "Web app",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "API Integration",
+      "SSR",
+      "CMS",
+      "GSAP",
+    ],
+    link: "https://search-pokemon-dex.vercel.app/",
   },
   {
     title: "iprox.",
@@ -63,5 +118,6 @@ export const projects = [
       "TypeScript",
       "API Integration",
     ],
+    link: "https://iprox.nl/",
   },
 ];

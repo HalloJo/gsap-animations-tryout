@@ -32,19 +32,18 @@ const VerticalScrollGallery = () => {
     document.body.style.overflowX = "hidden";
 
     // Horizontal scroll
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: container,
-          start: "top top",
-          end: () => `+=${totalScrollX}`,
-          scrub: true,
-        },
-      })
-      .to(content, {
-        x: -totalScrollX,
-        ease: "none",
-      });
+    const horizontalScroll = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top top",
+        end: () => `+=${totalScrollX}`,
+        scrub: true,
+      },
+    });
+    horizontalScroll.to(content, {
+      x: -totalScrollX,
+      ease: "none",
+    });
 
     const preventScroll = (event: WheelEvent) => {
       if (event.deltaX !== 0) {
@@ -92,8 +91,24 @@ const VerticalScrollGallery = () => {
       },
       "-=0.1"
     );
+    gsap.utils.toArray(".case-item").forEach((item) => {
+      const element = item as HTMLElement;
 
-    // Clean up event listener on component unmount
+      gsap.from(element, {
+        scrollTrigger: {
+          trigger: element,
+          containerAnimation: horizontalScroll,
+          start: "left 80%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+        x: 200,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    });
+
     return () => {
       window.removeEventListener("wheel", preventScroll);
       document.body.style.overflowX = ""; // Restore the default overflow
@@ -111,18 +126,17 @@ const VerticalScrollGallery = () => {
             <div className="overflow-hidden">
               <p
                 ref={introTitle}
-                className="text-9xl/snug text-green-200 font-semibold"
+                className="text-[clamp(2rem,7vw,8rem)] leading-snug text-green-200 font-semibold"
               >
                 Work that moves.
               </p>
             </div>
             <svg
-              width="640"
-              height="152"
               viewBox="0 0 640 152"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               id="arrow"
+              className="w-[clamp(200px,50vw,1300px)] h-auto"
             >
               <path
                 d="M12.4257 2.28922C-2.13359 18.4662 0.382145 59.5375 12.5435 76.2593C56.9227 137.281 147.138 144.983 215.49 148.58C251.076 150.453 285.197 149.774 320.674 145.4C355.305 141.131 387.653 130.775 421.146 121.489C469.016 108.219 515.592 88.4731 564.139 78.1439C577.285 75.347 590.546 72.1809 603.48 68.4854C610.197 66.5664 620.29 68.1247 626.213 64.834C628.98 63.2966 638.908 63.8386 637.874 63.7739C632.537 63.4404 628.487 58.8205 623.975 57.5312C618.494 55.9652 616.686 52.7892 619.852 61.6538C621.756 66.9837 624.937 73.4746 625.153 79.0862C625.904 98.6104 633.633 73.597 633.633 65.8941"
@@ -135,7 +149,7 @@ const VerticalScrollGallery = () => {
             <div className="w-1/4 overflow-hidden mt-16">
               <p
                 ref={introText}
-                className="text-3xl/snug text-green-200 font-light text-right"
+                className="text-[clamp(1rem,4vw,1.5rem)] leading-[1.2] text-green-200 font-light text-right"
               >
                 A curated selection of interactive builds, simpler websites, and
                 digital experiments.
@@ -146,55 +160,45 @@ const VerticalScrollGallery = () => {
           {projects.map((project) => (
             <div
               key={project.title}
-              className={`w-[75vw] h-screen  shrink-0 p-16`}
+              className={`w-screen h-screen flex flex-col items-center shrink-0 p-16 case-item`}
             >
-              <a href="" className="grid grid-cols-12 gap-y-8">
+              <div className="grid grid-cols-12 gap-y-8">
                 <div className="col-span-full">
-                  <div className="flex justify-between col-span-full row-start-1">
-                    <p className="text-6xl/snug text-white font-semibold">
+                  <div className="flex justify-between col-span-full row-start-1 ">
+                    <p className="text-6xl/snug text-white font-semibold ">
                       {project.title}
                     </p>
-                    <span className="text-green-200 text-8xl font-light">
-                      <svg
-                        width="49"
-                        height="49"
-                        viewBox="0 0 49 49"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M2 47L47 2M47 2H13.25M47 2V35.75"
-                          stroke="#B8F8CF"
-                          strokeWidth="3.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
                   </div>
                 </div>
-                <p className="col-span-6 text-2xl text-[#6A7D75]">
+                <p className="col-span-8 text-[clamp(1rem,4vw,1.5rem)] font-light leading-[1.2] text-[#6A7D75] ">
                   {project.intro}
                 </p>
-                <picture className="h-fit col-span-10 col-start-2">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className=" w-full h-auto object-cover rounded-3xl"
-                  />
-                </picture>
-                <div className="flex flex-row flex-wrap gap-2 row-start-4 col-span-full">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="col-span-8 col-start-2 hover:-translate-x-8 transition-all duration-300"
+                >
+                  <picture className="h-fit mask-r-from-50% mask-r-to-90%">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-[clamp(200px,60vw,700px)] h-auto object-cover rounded-3xl"
+                    />
+                  </picture>
+                </a>
+                <div className="flex flex-row flex-wrap gap-2 row-start-4 col-span-full ">
                   {project.tags &&
                     project.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="text-white text-2xl font-light border border-white px-2 rounded-full"
+                        className="text-white text-[clamp(1rem,4vw,1.25rem)] leading-[1.2] font-light border border-white px-2 rounded-full"
                       >
                         {tag}
                       </span>
                     ))}
                 </div>
-              </a>
+              </div>
             </div>
           ))}
         </div>

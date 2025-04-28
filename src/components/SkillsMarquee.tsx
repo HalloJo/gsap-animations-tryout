@@ -78,7 +78,7 @@ const SkillsMarquee = () => {
       <div className="sticky top-50 w-full h-dvh flex flex-col items-center justify-start overflow-hidden">
         <h2
           ref={title}
-          className="text-6xl leading-[1.2] mb-8 text-white font-semibold"
+          className="text-[clamp(1rem,7vw,2.5rem)] leading-[1.2] mb-8 text-white font-semibold"
         >
           What I bring to the table.
         </h2>
@@ -92,7 +92,7 @@ const SkillsMarquee = () => {
             return (
               <div
                 key={index}
-                className="skill-row flex gap-3 min-w-[100%] text-[clamp(2rem,4vw,5rem)] font-medium leading-tight tracking-tight whitespace-nowrap"
+                className="skill-row flex gap-3 min-w-[100%] text-[clamp(2rem,3vw,4rem)] font-medium leading-tight tracking-tight whitespace-nowrap"
               >
                 {[...Array(3)].map((_, repeatIndex) => (
                   <div key={repeatIndex} className="flex gap-3">

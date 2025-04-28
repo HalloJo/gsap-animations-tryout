@@ -143,18 +143,17 @@ const Reveal = () => {
             <div className="overflow-hidden">
               <p
                 ref={revealTitle}
-                className="text-9xl/snug text-white font-semibold"
+                className="text-[clamp(2rem,7vw,8rem)] leading-snug text-white font-semibold"
               >
                 Code is my canvas.
               </p>
             </div>
             <svg
-              width="1300"
-              height="36"
               viewBox="0 0 1300 36"
               fill="none"
               id="scribble"
               xmlns="http://www.w3.org/2000/svg"
+              className="w-[clamp(200px,50vw,1300px)] h-auto"
             >
               <path
                 d="M2 34C171.253 34 340.895 18.633 510 14C597.732 11.5964 685.096 1.99999 773.111 1.99999C977.812 1.99999 1184.07 -2.0112 1388.22 13.1111C1470.83 19.2306 1556.08 22 1638.89 22C1706.98 22 1775.08 26 1842.89 26C1941.46 26 2039.39 30 2138 30"
@@ -166,13 +165,10 @@ const Reveal = () => {
             <div className="overflow-hidden">
               <p
                 ref={revealIntro}
-                className="text-5xl leading-[1.2] text-white font-medium"
+                className="text-[clamp(1rem,7vw,2.5rem)] leading-[1.2] text-white font-medium"
               >
                 I build expressive, cacti-tough, and animated digital
-                experiences.
-                <br />
-                Bridging creativity and logic—one scroll at a time.
-                <br />
+                experiences. Bridging creativity and logic—one scroll at a time.
                 But I also make simpler stuff, don't worry :)
               </p>
             </div>
